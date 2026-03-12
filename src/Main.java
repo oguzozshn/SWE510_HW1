@@ -164,11 +164,31 @@ public class Main {
 
         public abstract void Run();
 
+        /**
+         * Increases the speed of the vehicle by a fixed value of 10 units.
+         *
+         * This method increments the current speed of the vehicle and outputs the updated speed value.
+         * It does not take any parameters and assumes a default speed increment.
+         *
+         * Behavior:
+         * - The `Speed` field is increased by 10.
+         * - A message is printed to indicate the speed increment and the new speed.
+         */
         public void SpeedUp() {
             this.Speed += 10;
-            System.out.println("No amount has entered - 1Vehicle speed has increased 10 units. New Speed: " + this.Speed);
+            System.out.println("No amount has entered - Vehicle speed has increased 10 units. New Speed: " + this.Speed);
         }
 
+        /**
+         * Increases the speed of the vehicle by a specified amount.
+         *
+         * This method modifies the current speed of the vehicle by adding the
+         * provided amount to the existing speed. A message is printed to indicate
+         * the speed increment and the updated speed value.
+         *
+         * @param amount the amount by which the vehicle's speed will be increased.
+         *               Must be a positive integer.
+         */
         public void SpeedUp(int amount) {
             this.Speed += amount;
             System.out.println("Vehicle speed has increased " + amount + " units. New Speed: " + this.Speed);
@@ -214,6 +234,10 @@ public class Main {
 
         public void Run() {
             System.out.println(getBrand() + " engine started silently.");
+        }
+
+        public void ShowInfo() {
+            System.out.println("ElectricCar: " + getBrand() + " " + Model + " | Speed: " + Speed);
         }
 
         public void activateAutoPilot() {
