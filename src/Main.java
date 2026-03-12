@@ -87,9 +87,13 @@ public class Main {
                         if (index >= 0 && index < vehicles.size()) {
                             System.out.print("Enter speed up amount: ");
                             String amount = scanner.nextLine();
-                            int amountInt = Integer.parseInt(amount);
 
-                            vehicles.get(index).SpeedUp(amountInt);
+                            if (amount.isEmpty()){
+                                vehicles.get(index).SpeedUp();
+                            } else {
+                                int amountInt = Integer.parseInt(amount);
+                                vehicles.get(index).SpeedUp(amountInt);
+                            }
 
                         } else {
                             System.out.println("Invalid vehicle number.");
