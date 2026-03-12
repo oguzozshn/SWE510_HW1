@@ -2,6 +2,14 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Main {
+    /**
+     * The entry point of the application. This method provides a console-based menu system
+     * to manage a list of vehicles. Users can add vehicles, increase their speed, or view
+     * their details through several options in the menu. The method runs in a loop until
+     * the user chooses to exit.
+     *
+     * @param args the command-line arguments provided during application startup (not used in this program).
+     */
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
         ArrayList<Vehicle> vehicles = new ArrayList<>();
@@ -125,10 +133,20 @@ public class Main {
 
         scanner.close();
     }
+
+    /**
+     * Represents an interface for vehicles that can operate with autonomous control.
+     * Classes implementing this interface should provide functionality for enabling
+     * and managing an autopilot system.
+     */
     interface I_Autonomous {
         void activateAutoPilot();
     }
 
+    /**
+     * Represents a generic vehicle with attributes for brand, model, and speed.
+     * This is an abstract class that must be extended by specific vehicle types.
+     */
     static abstract class Vehicle {
         private String Brand;
         protected String Model;
