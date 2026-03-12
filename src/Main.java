@@ -23,6 +23,7 @@ public class Main {
                         System.out.println("\n--- ADD VEHICLE MENU ---");
                         System.out.println("1 - Add Car");
                         System.out.println("2 - Add Bicycle");
+                        System.out.println("3 - Add Electric Car");
                         System.out.println("0 - Back to Main Menu");
                         System.out.print("Choose: ");
                         String addChoice = scanner.nextLine();
@@ -43,6 +44,9 @@ public class Main {
                         } else if (addChoice.equals("2")) {
                             vehicles.add(new Bicycle(brand, model));
                             System.out.println("Bicycle added successfully.");
+                        } else if (addChoice.equals("3")) {
+                            vehicles.add(new ElectricCar(brand, model));
+                            System.out.println("Electric Car added successfully.");
                         } else {
                             System.out.println("Invalid choice.");
                         }
@@ -121,6 +125,9 @@ public class Main {
 
         scanner.close();
     }
+    interface I_Autonomous {
+        void activateAutoPilot();
+    }
 
     static abstract class Vehicle {
         private String Brand;
@@ -179,6 +186,20 @@ public class Main {
 
         public void ShowInfo() {
             System.out.println("Bicycle: " + getBrand() + " " + Model + " | Speed: " + Speed);
+        }
+    }
+
+    static class ElectricCar extends Vehicle implements I_Autonomous {
+        public ElectricCar(String brand, String model) {
+            super(brand, model);
+        }
+
+        public void Run() {
+            System.out.println(getBrand() + " engine started silently.");
+        }
+
+        public void activateAutoPilot() {
+            System.out.println("AutoPilot has started. You can free your hands from steering wheel.");
         }
     }
 }
